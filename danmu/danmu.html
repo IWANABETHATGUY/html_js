@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/jquery-3.1.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/iconfont.css">
+</head>
+<body>
+<div class="container">
+    <div class="display_mask"></div>
+    <div class="display_box"></div>
+    <div class="mask">
+        <div class="lead_slider">
+
+            <ul class="icon_list">
+                <li style="right:0px;"><a class="btn btn_scale"><i class="iconfont icon-fangda"></i></a></li>
+                <li style="right:50px;"><a class="btn btn_shezhi"><i style="font-size:35px; line-height:25px;" class="iconfont icon-shezhi"></i></a></li>
+                <li style="right:100px;">
+                    <div class="slide-two">
+                        <input type="checkbox" value="None" id="slideTwo" name="check" checked/>
+                        <label for="slideTwo"></label>
+                    </div>
+                </li>
+                <li style="right:185px;top:5px;"><span>弹幕</span></li>
+                <li style="right:230px;top:-2px;"><a class="btn btn_yingliang"><i class="iconfont icon-yinliang"></i></a>
+                    <div class="ddf">
+                        <span class="content"></span>
+                        <div id="slider">
+                            <div  id="custom-handle" class="ui-slider-handle"></div>
+                        </div>
+                    </div></li>
+                <li style="left:10px;top:-3px;"><a  class="btn btn_zanting  btn_radio"><i class="iconfont icon-iconfontcolor96"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <ul class="list"></ul>
+</div>
+
+<div class="input_box" id="small-input-box">
+    <div class="container_box">
+        <input type="text" class="input input_text" placeholder="说点什么吧。。"/>
+        <a class="input send"><i class="iconfont icon-fadanmu"></i></a>
+    </div>
+
+
+</div>
+</body>
+</html>
