@@ -3,6 +3,8 @@
  */
 var is_scale=false;
 var bofang=true;
+var jingying=false;//静音布尔值
+var volume=0;
 $(function(){
     //定时保持滚动条在底部
     //查看当前display_mask 有多少弹幕,清楚在屏幕外的弹幕
@@ -17,7 +19,7 @@ $(function(){
     },15000);
 
     //for testing ....
-    var arr=["what","666","shit","what the fuck","deep dark fantancy"];
+    var arr=["what","666","阳物♂运动","去年♂勃起♂至今","deep ♂dark fantancy"];
     var ttt=setInterval(function(){
         var text=arr[parseInt(Math.random()*5)];
         $(".list").append("<li>"+text+"</li>");
@@ -52,6 +54,11 @@ $(function(){
         scale();
     })
     // 放大后的弹幕发送栏
+	$('#scale_big_input').focus(function(){
+		$('.mask').css('bottom',0);
+		alert("shit");
+
+	})
     //双击display_box
     $(".display_box,.display_mask").dblclick(function(){
         scale();
@@ -86,15 +93,27 @@ $(function(){
 
     });
     //音量控制条
-    $(".icon_list>li:nth-child(5)").hover(function(){
+    $("#icon_list>li:nth-child(5)").hover(function(){
         $(".ddf").css("display","block");
     })
-    $(".icon_list>li:nth-child(5)").mouseleave(function(){
+    $("#icon_list>li:nth-child(5)").mouseleave(function(){
         $(".ddf").css("display","none");
     })
     //静音
-    $(".icon_list>li:nth-child(5)").click(function(){
-        $(this).
+    $("a.btn_yingliang").click(function(){
+      console.log(jingying);
+      if(!jingying){
+        $(this).addClass('jingying');
+        $('#slider').slider('option','value',0);
+          $(".ddf>span").text(0);
+        jingying=true;
+      }
+      else{
+      $(this).removeClass('jingying');
+        jingying=false;
+        $('#slider').slider('option','value',volume);
+          $(".ddf>span").text(volume);
+      }
     })
     var handle = $( "#custom-handle" );
     $( "#slider" ).slider({
@@ -105,10 +124,12 @@ $(function(){
         value:30,
         slide:function(event,ui){
             $(".ddf>span").text(ui.value);
+            volume=ui.value;
         }
-
     });
+    volume=$("#slider").slider("value");
     $(".ddf>span").text($("#slider").slider("value"));
+    $('')
 })
 //    send函数
 function send(text){
@@ -168,7 +189,7 @@ function scale(){
         $(".display_mask").css({"height":"730px","width":"1000px","top":"0px","left":"0px"});
         $(".mask").css({"width":"1000px","right":"0px"});
         $(".lead_slider").css({"width":"1000px"});
-        $(".container>.lead_slider").append("#box_box");
+        $('#icon_list').append("<li><input class='input input_text' id='scale_big_input' placeholder='说点什么吧...' type='text' style='left:150px;top:-2px;width:500px;'/></li>");
         is_scale=true;
     }
     else{

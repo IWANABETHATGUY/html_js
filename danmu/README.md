@@ -1,2 +1,6 @@
-This is a new describe for the new app....\n
-which is a easy danmu_model...
+# 这是一个简易的弹幕模型
+1. 实现了全屏的功能，全屏发弹幕。
+2. 只实现了前端的功能,后端的功能暂时未实现
+3. 不过没有播放的时功能。。。。
+[demo地址]('http://IWANABETHATGUY.io.com')
+![样例截图]('img/2017-02-25 21-24-44屏幕截图.png')

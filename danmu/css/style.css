@@ -65,15 +65,16 @@ a.btn{
     width:30px;
     user-select:none;
     margin:2px 2px;
-    line-height:40px;
+    display:block;
+    position:relative;
 }
-.icon_list>li{
+#icon_list>li{
     display:inline-block;
     list-style:none;
     text-align:center;
     position:absolute;
 }
-.icon_list{
+#icon_list{
     margin:10px;
     height:30px;
     position:relative;
@@ -124,6 +125,7 @@ div.input_box{
     height:30px;
     margin:2px 0;
     position:absolute;
+    outline:none;
 }
 
 .input.send{
@@ -173,11 +175,20 @@ div.input_box{
     line-height:4px;
     outline:none;
 }
-.btn_yingliang:hover{
-
+.btn_yingliang:before{
+  content: "";
+  display:none;
+  height: 2px;
+  background-color: rgb(232, 9, 9);
+  position: absolute;
+  width: 34px;
+  transform: rotate(45deg) translateX(6px) translateY(13px);
+}
+.jingying.btn_yingliang:before{
+  display:block;
 }
 /*弹幕开关*/
-.icon_list li:nth-child(3)>span{
+#icon_list li:nth-child(3)>span{
     position:absolute;
     display:inline;
     white-space: nowrap;
@@ -246,5 +257,3 @@ div.slide-two{
     from{transform:rotate(0deg)}
     to{transform:rotate(180deg)}
 }
-
-
