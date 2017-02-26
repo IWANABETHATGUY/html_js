@@ -30,7 +30,7 @@ $(function(){
         $(".list").scrollTop($(".list")[0].scrollHeight);
     },100);
     //当发送执行
-    $(".input.send").click(function(){
+    $("body").on('click','.send',function(){
         if($(".input.input_text").val()){
             var text=$(".input.input_text").val();
             self_send(text);
@@ -42,12 +42,13 @@ $(function(){
     })
     //clear
 
-    $(".input.input_text").focus(function(){
+    $("body").on('focus','.input_text.input',function(){
         $(document).keydown(function(e){
             if(e.keyCode== 13)
                 $(".input.send").click();
         })
     })
+
 
     //放大按钮
     $(".btn_scale").click(function(){
@@ -176,7 +177,7 @@ function random_top(){
         re=re-re%16;
         return re+"px";
     }
-
+        alert('shit');
 }
 //缩放函数
 function scale(){
@@ -190,6 +191,7 @@ function scale(){
         $(".mask").css({"width":"1000px","right":"0px"});
         $(".lead_slider").css({"width":"1000px"});
         $('#icon_list').append("<li><input class='input input_text' id='scale_big_input' placeholder='说点什么吧...' type='text' style='left:150px;top:-2px;width:500px;'/></li>");
+        $('#icon_list').append("<li><a class='input send' style='left:660px;top:-5px;'>发送</a></li>");
         is_scale=true;
     }
     else{
@@ -201,6 +203,7 @@ function scale(){
         $(".display_mask").css({"height":"400px","width":"700px","left":"300px"});
         $(".mask").css({"width":"700px","right":"534.5px"});
         $(".lead_slider").css({"width":"700px"});
+        $('#icon_list .input').remove();
         is_scale=false;
 
     }

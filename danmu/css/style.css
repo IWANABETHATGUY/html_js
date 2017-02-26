@@ -87,6 +87,14 @@ a.btn{
 .btn_radio{
     transition:0.3s ease;
 }
+.btn_shezhi{
+    transform:rotate(0deg);
+    transition:0.2s linear;
+}
+.btn_shezhi:hover{
+    transform:rotate(180deg);
+    transition:0.2s linear;
+}
 /*鼠标移入时*/
 
 /*弹幕列表*/
@@ -126,6 +134,8 @@ div.input_box{
     margin:2px 0;
     position:absolute;
     outline:none;
+    border:1px solid #ccc;
+    border-radius:5px;
 }
 
 .input.send{
