@@ -3,4 +3,4 @@
 2. 只实现了前端的功能,后端的功能暂时未实现
 3. 不过没有播放的时功能。。。。  
 [demo地址](https://iwanabethatguy.github.io/html_js/danmu/)   
-![样例截图](html_js/danmu/img/demo.png)
+![样例截图](https://raw.githubusercontent.com/IWANABETHATGUY/html_js/master/danmu/img/demo.png)
