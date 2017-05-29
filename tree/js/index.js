@@ -33,7 +33,10 @@ let canvas=document.getElementById("canvas"),
     reproduce=document.getElementById("reproduce"),
     input=document.getElementById("input"),
     st=new Stack(),
-    deep=document.getElementById('inorder');
+    preorder=document.getElementById('preorder'),
+    inorder=document.getElementById('inorder'),
+    postorder=document.getElementById('postorder');
+    
     
 function sleep(time){
   return new Promise((resolve)=>{
@@ -52,7 +55,16 @@ async function glare(i){
   context.fill();
   await sleep(200);
 }
-deep.addEventListener('click',async function(){
+reproduce.addEventListener("click",function(){
+  circles=[];
+  context.clearRect(0,0,canvas.width,canvas.height);
+  if(input.value.length)
+    test(str_arr(input.value));
+  draw_tree();
+});
+//四种遍历方式
+//前序遍历
+preorder.addEventListener('click',async function(){
   let len=circles.length;
   let cur;
   if(len>0){
@@ -68,14 +80,52 @@ deep.addEventListener('click',async function(){
       st.push(cur*2+1);
   }
 });
-
-
-reproduce.addEventListener("click",function(){
-  circles=[];
-  context.clearRect(0,0,canvas.width,canvas.height);
-  if(input.value.length)
-    test(str_arr(input.value));
-  draw_tree();
+//中序遍历
+inorder.addEventListener('click',async function(){
+  let len=circles.length;
+  let cur;
+  if(len>0){
+    cur=0;
+    st.push(cur);
+  }
+  while(!st.empty()){
+    if(cur*2+1<len&&circles[cur*2+1].text){
+      st.push(cur*2+1);
+      cur=cur*2+1;
+    }
+    else{
+      cur=st.pop();
+      await glare(cur);
+      if(cur*2+2<len&&circles[cur*2+2].text){
+        st.push(cur*2+2);
+        cur=cur*2+2;
+      }
+    }
+  }
+});
+//后序遍历
+postorder.addEventListener('click',async function(){
+  let len=circles.length;
+  let st1=new Stack(),
+      st2=new Stack();
+  let cur;
+  if(len>0){
+    cur=0;
+    st1.push(cur);
+  }
+  while(!st1.empty()){
+    cur=st1.pop();
+    st2.push(cur);
+    if(cur*2+1<len&&circles[cur*2+1].text){
+      st1.push(cur*2+1);
+    }
+    if(cur*2+2<len&&circles[cur*2+2].text){
+      st1.push(cur*2+2);
+    }
+  }
+  while(!st2.empty()){
+    await glare(st2.pop());
+  }
 });
 function  draw_tree(){
   let len=circles.length;
