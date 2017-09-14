@@ -1,0 +1,33 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 400px;
+	height: 400px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.item {
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	border: 1px solid #ccc;
+	font-size: 30px;
+	text-align:center;
+	line-height:100px;
+	box-sizing: border-box;
+	transition: background 300ms linear;
+	z-index: 0;
+}
+.item.active {
+	background:#ccc;
+	z-index: 2;
+}
