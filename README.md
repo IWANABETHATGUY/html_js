@@ -15,4 +15,4 @@
 ### 缩放动画
 一个大的容器内有数个相同的展示卡片，再点击以后会从当前自然过渡到占满整个容器  
 ![缩放动画](http://ouck2t8ui.bkt.clouddn.com/scaleAnimate-1.gif)  
-## [demo地址](https://iwanabethatguy.github.io/html_js/缩放动画)
+## [demo地址](https://iwanabethatguy.github.io/html_js/scale-animate)
